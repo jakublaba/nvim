@@ -3,8 +3,22 @@ local M = {}
 M.dap = {
   n = {
     ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
+      function ()
+        require("dap").toggle_breakpoint()
+      end,
       "toggle breakpoint"
+    },
+    ["<leader>ds"] = {
+      function ()
+        require("dap").step_over()
+      end,
+      "step over"
+    },
+    ["<leader>di"] = {
+      function ()
+        require("dap").step_into()
+      end,
+      "step into"
     },
     ["<leader>dus"] = {
       function ()

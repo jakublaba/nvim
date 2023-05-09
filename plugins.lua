@@ -16,6 +16,7 @@ local plugins = {
       ensure_installed = {
         "lua-language-server",
         "rust-analyzer",
+        "jdtls"
       }
     }
   },
@@ -51,9 +52,12 @@ local plugins = {
     "mfussenegger/nvim-dap",
   },
   {
-    -- multi cursor
-    -- https://github.com/mg979/vim-visual-multi
-    "mg979/vim-visual-multi"
+    -- java plugin
+    -- https://github.com/mfussenegger/nvim-jdtls
+    "mfussenegger/nvim-jdtls",
+    config = function ()
+      require("custom.configs.java")
+    end
   },
   {
     -- rust plugin
@@ -88,6 +92,26 @@ local plugins = {
       crates.setup(opts)
       crates.show()
     end
+  },
+  {
+    -- git integration
+    -- https://github.com/tpope/vim-fugitive
+    "tpope/vim-fugitive",
+  },
+  {
+    -- git ui
+    -- https://github.com/lewis6991/gitsigns.nvim
+    "lewis6991/gitsigns.nvim",
+  },
+  {
+    -- transparent background
+    -- https://github.com/xiyaowong/transparent.nvim
+    "xiyaowong/transparent.nvim",
+    lazy = false,
+    extra_groups = {
+      "NormalFloat",
+      "NvimTreeNormal"
+    }
   },
 }
 
