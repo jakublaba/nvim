@@ -2,6 +2,12 @@ local M = {}
 
 M.dap = {
   n = {
+    ["<leader>dr"] = {
+      function ()
+        -- TODO  
+      end,
+      "run debugger"
+    },
     ["<leader>db"] = {
       function ()
         require("dap").toggle_breakpoint()

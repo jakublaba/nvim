@@ -9,6 +9,14 @@ local plugins = {
     end
   },
   {
+    -- null ls
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function ()
+      require("custom.configs.null-ls")
+    end
+  },
+  {
     -- mason package manager
     -- https://github.com/williamboman/mason.nvim
     "williamboman/mason.nvim",
@@ -16,7 +24,8 @@ local plugins = {
       ensure_installed = {
         "lua-language-server",
         "rust-analyzer",
-        "jdtls"
+        "jdtls",
+        "java-debug-adapter"
       }
     }
   },
