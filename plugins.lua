@@ -9,14 +9,6 @@ local plugins = {
     end
   },
   {
-    -- null ls
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function ()
-      require("custom.configs.null-ls")
-    end
-  },
-  {
     -- mason package manager
     -- https://github.com/williamboman/mason.nvim
     "williamboman/mason.nvim",
@@ -25,7 +17,7 @@ local plugins = {
         "lua-language-server",
         "rust-analyzer",
         "jdtls",
-        "java-debug-adapter"
+        "pyright"
       }
     }
   },
@@ -65,7 +57,7 @@ local plugins = {
     -- https://github.com/mfussenegger/nvim-jdtls
     "mfussenegger/nvim-jdtls",
     config = function ()
-      require("custom.configs.java")
+      require("custom.configs.jdtls")
     end
   },
   {
@@ -106,21 +98,22 @@ local plugins = {
     -- git integration
     -- https://github.com/tpope/vim-fugitive
     "tpope/vim-fugitive",
+    event = "User InGitRepo",
+    config = function ()
+      require("custom.configs.fugitive")
+    end
   },
   {
-    -- git ui
-    -- https://github.com/lewis6991/gitsigns.nvim
-    "lewis6991/gitsigns.nvim",
+    -- python pep8 style indents
+    -- https://github.com/Vimjas/vim-python-pep8-indent
+    "Vimjas/vim-python-pep8-indent",
+    ft = { "python" }
   },
   {
-    -- transparent background
-    -- https://github.com/xiyaowong/transparent.nvim
-    "xiyaowong/transparent.nvim",
-    lazy = false,
-    extra_groups = {
-      "NormalFloat",
-      "NvimTreeNormal"
-    }
+    -- markdown plugin
+    -- https://github.com/preservim/vim-markdown
+    "preservim/vim-markdown",
+    ft = { "markdown" }
   },
 }
 
